@@ -50,9 +50,13 @@ fn display_nema_content( s: &nmea::SentenceType, n: &nmea::Nmea) {
         nmea::SentenceType::RMC =>{
             println!("Time {}", n.fix_time.unwrap());
             println!("Date {}", n.fix_date.unwrap());
-            println!("Position {:.5}, {:.5}", n.latitude.unwrap(), n.longitude.unwrap());
-            println!("Speed {}", n.speed_over_ground.unwrap());
-            println!("Direction {}", n.true_course.unwrap());
+            if n.fix_type.as_ref().unwrap() != &nmea::FixType::Invalid {
+                println!("Position {:.5}, {:.5}", n.latitude.unwrap(), n.longitude.unwrap());
+                println!("Speed {}", n.speed_over_ground.unwrap());
+                println!("Direction {}", n.true_course.unwrap());
+            } else {
+                println!("Not Fixed")
+            }
         },
         nmea::SentenceType::VTG =>{
 
