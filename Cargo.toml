@@ -1,0 +1,12 @@
+[package]
+name = "gpsreader"
+version = "0.1.0"
+authors = ["Hirofumi Tamori <Hirofumi.Tamori@outlook.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serialport = "3.3.0"
+clap = "~2.33.3"
+nmea = "~0.0.9"
