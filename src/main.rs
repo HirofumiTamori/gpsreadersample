@@ -54,6 +54,8 @@ fn display_nema_content( s: &nmea::SentenceType, n: &nmea::Nmea) {
                 println!("Position {:.5}, {:.5}", n.latitude.unwrap(), n.longitude.unwrap());
                 println!("Speed {}", n.speed_over_ground.unwrap());
                 println!("Direction {}", n.true_course.unwrap());
+            } else {
+                println!("Not Fixed")
             }
         },
         nmea::SentenceType::VTG =>{
